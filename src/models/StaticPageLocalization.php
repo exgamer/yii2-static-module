@@ -26,7 +26,7 @@ use concepture\yii2logic\validators\TranslitValidator;
  *
  * @author Olzhas Kulzhambekov <exgamer@live.ru>
  */
-class StaticPageLocalization extends CActiveRecord
+class StaticPageLocalization extends ActiveRecord
 {
     /**
      * {@inheritdoc}
