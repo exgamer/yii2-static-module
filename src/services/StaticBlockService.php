@@ -5,6 +5,8 @@ use concepture\yii2logic\forms\Form;
 use concepture\yii2logic\services\Service;
 use Yii;
 use concepture\yii2logic\services\traits\StatusTrait;
+use concepture\yii2logic\services\traits\LocalizedReadTrait;
+
 
 /**
  * Class StaticBlockService
@@ -14,6 +16,7 @@ use concepture\yii2logic\services\traits\StatusTrait;
 class StaticBlockService extends Service
 {
     use StatusTrait;
+    use LocalizedReadTrait;
 
     protected function beforeCreate(Form $form)
     {
