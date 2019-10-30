@@ -9,7 +9,6 @@ use concepture\yii2logic\validators\TranslitValidator;
  * StaticPageLocalization model
  *
  * @property integer $id
- * @property integer $category_id
  * @property integer $user_id
  * @property integer $sort
  * @property string $locale
