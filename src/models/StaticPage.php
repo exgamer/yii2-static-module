@@ -130,4 +130,25 @@ class StaticPage extends ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
+
+    public function afterSave($insert, $changedAttributes)
+    {
+        $this->saveLocalizations();
+
+        return parent::afterSave($insert, $changedAttributes);
+    }
+
+    public function afterDelete()
+    {
+        $this->deleteLocalizations();
+
+        return parent::afterDelete();
+    }
+
+    public function afterFind()
+    {
+        $this->setLocalizations();
+
+        return parent::afterFind();
+    }
 }
