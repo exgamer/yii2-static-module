@@ -1,0 +1,28 @@
+{
+    "name": "concepture/yii2-static",
+    "license": "BSD-3-Clause",
+    "type": "yii2-extension",
+    "description": "package under development",
+    "require": {
+        "concepture/yii2-logic-core": "dev-master",
+        "yiisoft/yii2": "2.0.14",
+        "yiisoft/yii2-jui": "~2.0.0"
+    },
+    "authors": [
+        {
+            "name": "Olzhas Kulzhambekov",
+            "email": "exgamer@live.ru"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "concepture\\yii2static\\": "src"
+        }
+    },
+    "extra": {
+        "bootstrap": "concepture\\yii2static\\Bootstrap",
+        "branch-alias": {
+            "dev-master": "1.0.0-dev"
+        }
+    }
+}
