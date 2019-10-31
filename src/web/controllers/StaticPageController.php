@@ -3,7 +3,7 @@
 namespace concepture\yii2static\web\controllers;
 
 use concepture\yii2user\enum\UserRoleEnum;
-use concepture\yii2logic\controllers\web\Controller;
+use concepture\yii2logic\controllers\web\localized\Controller;
 use concepture\yii2logic\actions\web\StatusChangeAction;
 
 /**
