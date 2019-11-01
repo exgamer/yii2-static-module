@@ -39,3 +39,15 @@
              'viewPath' => '@backend/views'
          ],
      ],
+     
+Для переопределния любого класса можно вооспользоваться инекцией зависимостей через config.php
+К примеру подменить модель StaticBlock на свой
+
+    <?php
+    return [
+        'container' => [
+            'definitions' => [
+                'concepture\yii2static\models\StaticBlock' => ['class' => 'backend\models\StaticBlock'],
+            ],
+        ],
+    ]
