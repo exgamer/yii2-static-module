@@ -26,5 +26,6 @@ class m191005_101557_static_block_localization extends Migration
             'content' => $this->text()->notNull()
         ]);
         $this->addIndex(['entity_id']);
+        $this->addIndex(['entity_id', 'locale'], true);
     }
 }
