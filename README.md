@@ -18,3 +18,24 @@
              'class' => 'concepture\yii2static\Module'
          ],
      ],
+     
+Для переопределния контроллера добавялем в настройки модуля
+
+     'modules' => [
+         'static' => [
+            'class' => 'concepture\yii2static\Module',
+            'controllerMap' => [
+                'static-block' => 'backend\controllers\StaticBlockController'
+            ],
+         ],
+     ],
+
+            
+Для переопределния папки с представленяими добавялем в настройки модуля
+
+     'modules' => [
+         'static' => [
+             'class' => 'concepture\yii2static\Module',
+             'viewPath' => '@backend/views'
+         ],
+     ],
