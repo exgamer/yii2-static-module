@@ -26,6 +26,17 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
+    <div class="form-group">
+        <?= Html::label(Yii::t('static', 'Версии'))?>
+        <?php foreach ($model->locales() as $locale):?>
+            <?= Html::a(
+                $locale,
+                \yii\helpers\Url::current(['locale' => $locale]),
+                ['class' => 'btn btn-lg btn-primary ' . ($locale == $model->locale ? "active" : "")]
+            ) ?>
+        <?php endforeach;?>
+    </div>
+
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
