@@ -20,6 +20,16 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?php Pjax::begin(); ?>
+    <div class="form-group">
+        <?= Html::label(Yii::t('static', 'Версии'))?>
+        <?php foreach (Yii::$app->localeService->getAllList('locale', 'locale') as $locale):?>
+            <?= Html::a(
+                $locale,
+                \yii\helpers\Url::current(['locale' => $locale]),
+                ['class' => 'btn btn-lg btn-primary ' . ($locale ==  $searchModel::currentLocale()  ? "active" : "")]
+            ) ?>
+        <?php endforeach;?>
+    </div>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
