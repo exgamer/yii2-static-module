@@ -47,9 +47,9 @@ class StaticPageSearch extends StaticPage
         $query->andFilterWhere([
             'status' => $this->status
         ]);
-        static::searchByLocalized($query, function($q, $localizedAlias){
+        static::$search_by_locale_callable = function($q, $localizedAlias){
             $q->andFilterWhere(['like', "{$localizedAlias}.seo_name", $this->seo_name]);
             $q->andFilterWhere(['like', "{$localizedAlias}.title", $this->title]);
-        });
+        };
     }
 }
