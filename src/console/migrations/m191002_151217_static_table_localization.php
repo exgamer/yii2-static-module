@@ -27,5 +27,6 @@ class m191002_151217_static_table_localization extends Migration
         ]);
         $this->addIndex(['entity_id']);
         $this->addIndex(['entity_id', 'locale'], true);
+        $this->addIndex(['locale']);
     }
 }
