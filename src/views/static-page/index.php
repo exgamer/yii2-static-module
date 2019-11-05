@@ -60,7 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'Версии',
                 'value'=>function($data) {
 
-                    return implode(",", $data->locales(true));
+                    return implode(",", $data->locales());
                 }
             ],
             'created_at',
