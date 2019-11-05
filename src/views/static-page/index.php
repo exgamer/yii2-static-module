@@ -79,7 +79,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'update'=> function ($url, $model) {
                         return Html::a(
                             '<span class="glyphicon glyphicon-pencil"></span>',
-                            ['view', 'id' => $model['id'], 'locale' => $model['locale']]
+                            ['update', 'id' => $model['id'], 'locale' => $model['locale']]
                         );
                     },
                     'activate'=> function ($url, $model) {
