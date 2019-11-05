@@ -70,8 +70,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class'=>'yii\grid\ActionColumn',
                 'template'=>'{view} {update} {activate} {deactivate} {delete}',
                 'buttons'=>[
-                    'view',
-                    'update',
+                    'view'=> function ($url, $model) {
+                        return Html::a(
+                            '<span class="glyphicon glyphicon-eye-open"></span>',
+                            ['view', 'id' => $model['id'], 'locale' => $model['locale']]
+                        );
+                    },
+                    'update'=> function ($url, $model) {
+                        return Html::a(
+                            '<span class="glyphicon glyphicon-pencil"></span>',
+                            ['view', 'id' => $model['id'], 'locale' => $model['locale']]
+                        );
+                    },
                     'activate'=> function ($url, $model) {
                         if ($model['status'] == StatusEnum::ACTIVE){
                             return '';
