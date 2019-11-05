@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-use concepture\yii2locale\converters\LocaleConverter;
 
 /* @var $this yii\web\View */
 /* @var $model concepture\article\models\PostCategory */
@@ -29,11 +28,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="form-group">
         <?= Html::label(Yii::t('static', 'Версии'))?>
-        <?php foreach ($model->locales() as $locale):?>
+        <?php foreach ($model->locales() as $key => $locale):?>
             <?= Html::a(
-                LocaleConverter::value($locale),
-                \yii\helpers\Url::current(['locale' => $locale]),
-                ['class' => 'btn btn-lg btn-primary ' . ($locale == $model->locale ? "active" : "")]
+                $locale,
+                \yii\helpers\Url::current(['locale' => $key]),
+                ['class' => 'btn btn-lg btn-primary ' . ($key == $model->locale ? "active" : "")]
             ) ?>
         <?php endforeach;?>
     </div>
