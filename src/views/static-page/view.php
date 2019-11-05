@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::label(Yii::t('static', 'Версии'))?>
         <?php foreach ($model->locales() as $locale):?>
             <?= Html::a(
-                LocaleConverter::key($locale),
+                LocaleConverter::value($locale),
                 \yii\helpers\Url::current(['locale' => $locale]),
                 ['class' => 'btn btn-lg btn-primary ' . ($locale == $model->locale ? "active" : "")]
             ) ?>
