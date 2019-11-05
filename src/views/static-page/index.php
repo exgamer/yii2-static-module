@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::begin(); ?>
     <div class="form-group">
         <?= Html::label(Yii::t('static', 'Версии'))?>
-        <?php foreach (Yii::$app->localeService->getAllList('key', 'locale') as $key => $locale):?>
+        <?php foreach (Yii::$app->localeService->getAllList('id', 'locale') as $key => $locale):?>
             <?= Html::a(
                 $locale,
                 \yii\helpers\Url::current(['locale' => $key]),
