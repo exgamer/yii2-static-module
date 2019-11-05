@@ -22,11 +22,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::begin(); ?>
     <div class="form-group">
         <?= Html::label(Yii::t('static', 'Версии'))?>
-        <?php foreach (Yii::$app->localeService->getAllList('locale', 'locale') as $locale):?>
+        <?php foreach (Yii::$app->localeService->getAllList('id', 'locale') as $key => $locale):?>
             <?= Html::a(
                 $locale,
-                \yii\helpers\Url::current(['locale' => $locale]),
-                ['class' => 'btn btn-lg btn-primary ' . ($locale ==  $searchModel::currentLocale()  ? "active" : "")]
+                \yii\helpers\Url::current(['locale' => $key]),
+                ['class' => 'btn btn-lg btn-primary ' . ($key ==  $searchModel::currentLocale()  ? "active" : "")]
             ) ?>
         <?php endforeach;?>
     </div>

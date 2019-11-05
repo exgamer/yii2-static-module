@@ -31,8 +31,7 @@ class StaticBlockSearch extends StaticBlock
             [
                 [
                     'title',
-                    'seo_name',
-                    'locale',
+                    'seo_name'
                 ],
                 'safe'
             ],

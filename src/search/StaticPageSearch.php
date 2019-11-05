@@ -31,8 +31,7 @@ class StaticPageSearch extends StaticPage
             [
                 [
                     'title',
-                    'seo_name',
-                    'locale',
+                    'seo_name'
                 ],
                 'safe'
             ],

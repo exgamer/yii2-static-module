@@ -17,7 +17,7 @@ class m191005_101557_static_block_localization extends Migration
         $this->addTable([
             'id' => $this->primaryKey(),
             'entity_id' => $this->integer()->notNull(),
-            'locale' => $this->string(2)->notNull(),
+            'locale' => $this->integer()->notNull(),
             'seo_name' => $this->string(1024)->notNull(),
             'seo_title' => $this->string(175)->notNull(),
             'seo_description' => $this->string(175)->notNull(),

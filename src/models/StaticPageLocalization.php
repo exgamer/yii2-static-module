@@ -11,7 +11,7 @@ use concepture\yii2logic\validators\TranslitValidator;
  * @property integer $id
  * @property integer $user_id
  * @property integer $sort
- * @property string $locale
+ * @property integer $locale
  * @property string $title
  * @property string $content
  * @property string $image
@@ -51,8 +51,7 @@ class StaticPageLocalization extends ActiveRecord
                 [
                     'locale'
                 ],
-                'string',
-                'max'=>2
+                'integer'
             ],
             [
                 [

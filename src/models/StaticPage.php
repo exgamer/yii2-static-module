@@ -14,7 +14,7 @@ use concepture\yii2logic\models\traits\StatusTrait;
  *
  * @property integer $id
  * @property integer $user_id
- * @property string $locale
+ * @property integer $locale
  * @property string $title
  * @property string $content
  * @property string $seo_name
@@ -66,8 +66,7 @@ class StaticPage extends ActiveRecord
                 [
                     'locale'
                 ],
-                'string',
-                'max'=>2
+                'integer'
             ],
             [
                 [
