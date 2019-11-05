@@ -1,6 +1,7 @@
 <?php
 namespace concepture\yii2static\models;
 
+use concepture\yii2locale\converters\LocaleConverter;
 use concepture\yii2user\models\User;
 use concepture\yii2logic\validators\UniquePropertyValidator;
 use Yii;
@@ -149,5 +150,10 @@ class StaticPage extends ActiveRecord
         $this->setLocalizations();
 
         return parent::afterFind();
+    }
+
+    protected static function getLocaleConverterClass()
+    {
+        return LocaleConverter::class;
     }
 }

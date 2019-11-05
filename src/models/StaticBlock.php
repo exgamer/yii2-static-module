@@ -8,6 +8,7 @@ use concepture\yii2logic\models\ActiveRecord;
 use concepture\yii2logic\validators\TranslitValidator;
 use concepture\yii2logic\models\traits\HasLocalizationTrait;
 use concepture\yii2logic\models\traits\StatusTrait;
+use concepture\yii2locale\converters\LocaleConverter;
 
 /**
  * StaticBlock model
@@ -149,5 +150,10 @@ class StaticBlock extends ActiveRecord
         $this->setLocalizations();
 
        return parent::afterFind();
+    }
+
+    protected static function getLocaleConverterClass()
+    {
+        return LocaleConverter::class;
     }
 }
