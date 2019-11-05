@@ -152,7 +152,7 @@ class StaticPage extends ActiveRecord
         return parent::afterFind();
     }
 
-    protected static function getLocaleConverterClass()
+    public static function getLocaleConverterClass()
     {
         return LocaleConverter::class;
     }
