@@ -50,6 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             'seo_name',
+            'url',
             'seo_h1',
             'seo_title',
             'seo_description',
