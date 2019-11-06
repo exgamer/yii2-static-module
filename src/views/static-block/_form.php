@@ -33,13 +33,6 @@ use yii\widgets\Pjax;
         ],
     ]); ?>
     <?= $form->field($model, 'seo_name')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'seo_h1')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'seo_title')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'seo_description')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'seo_keywords')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('static', 'Сохранить'), ['class' => 'btn btn-success']) ?>

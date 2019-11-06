@@ -16,6 +16,7 @@ use concepture\yii2logic\models\traits\StatusTrait;
  * @property integer $id
  * @property integer $user_id
  * @property integer $locale
+ * @property string $url
  * @property string $title
  * @property string $content
  * @property string $seo_name
@@ -34,6 +35,7 @@ class StaticPage extends ActiveRecord
     use StatusTrait;
 
     public $locale;
+    public $url;
     public $title;
     public $content;
     public $seo_name;
@@ -77,6 +79,7 @@ class StaticPage extends ActiveRecord
                     'title',
                     'seo_name',
                     'seo_h1',
+                    'url',
                 ],
                 'string',
                 'max'=>1024
@@ -114,6 +117,7 @@ class StaticPage extends ActiveRecord
             'domain_id' => Yii::t('static','Домен'),
             'status' => Yii::t('static','Статус'),
             'locale' => Yii::t('static','Язык'),
+            'url' => Yii::t('static','url страницы'),
             'title' => Yii::t('static','Название'),
             'content' => Yii::t('static','Контент'),
             'seo_name' => Yii::t('static','SEO название'),

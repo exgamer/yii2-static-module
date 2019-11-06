@@ -32,6 +32,7 @@ use yii\widgets\Pjax;
             'allowedContent' => true,
         ],
     ]); ?>
+    <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'seo_name')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'seo_h1')->textInput(['maxlength' => true]) ?>
 

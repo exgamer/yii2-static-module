@@ -32,7 +32,8 @@ class StaticPageSearch extends StaticPage
             [
                 [
                     'title',
-                    'seo_name'
+                    'seo_name',
+                    'url'
                 ],
                 'safe'
             ],
@@ -49,6 +50,9 @@ class StaticPageSearch extends StaticPage
         ]);
         $query->andFilterWhere([
             'domain_id' => $this->domain_id
+        ]);
+        $query->andFilterWhere([
+            'url' => $this->url
         ]);
         static::$search_by_locale_callable = function($q, $localizedAlias){
             $q->andFilterWhere(['like', "{$localizedAlias}.seo_name", $this->seo_name]);

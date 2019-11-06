@@ -19,6 +19,7 @@ class m191002_151217_static_table_localization extends Migration
             'entity_id' => $this->integer()->notNull(),
             'locale' => $this->integer()->notNull(),
             'seo_name' => $this->string(1024),
+            'url' => $this->string(1024),
             'seo_h1' => $this->string(1024),
             'seo_title' => $this->string(175),
             'seo_description' => $this->string(175),
@@ -29,5 +30,6 @@ class m191002_151217_static_table_localization extends Migration
         $this->addIndex(['entity_id']);
         $this->addIndex(['entity_id', 'locale'], true);
         $this->addIndex(['locale']);
+        $this->addIndex(['url']);
     }
 }

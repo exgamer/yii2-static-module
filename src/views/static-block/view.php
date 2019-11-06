@@ -50,10 +50,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             'seo_name',
-            'seo_h1',
-            'seo_title',
-            'seo_description',
-            'seo_keywords',
             [
                 'attribute'=>'status',
                 'value'=>$model->statusLabel(),
