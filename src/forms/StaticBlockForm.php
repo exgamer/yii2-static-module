@@ -13,10 +13,12 @@ use Yii;
 class StaticBlockForm extends Form
 {
     public $user_id;
+    public $domain_id;
     public $locale = "ru";
     public $title;
     public $content;
     public $seo_name;
+    public $seo_h1;
     public $seo_title;
     public $seo_description;
     public $seo_keywords;

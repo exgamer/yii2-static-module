@@ -63,6 +63,7 @@ class StaticBlockLocalization extends ActiveRecord
                 [
                     'title',
                     'seo_name',
+                    'seo_h1',
                 ],
                 'string',
                 'max'=>1024
@@ -87,6 +88,7 @@ class StaticBlockLocalization extends ActiveRecord
             'title' => Yii::t('static','Название'),
             'content' => Yii::t('static','Контент'),
             'seo_name' => Yii::t('static','SEO название'),
+            'seo_h1' => Yii::t('static','SEO H1'),
             'seo_title' => Yii::t('static','SEO title'),
             'seo_description' => Yii::t('static','SEO description'),
             'seo_keywords' => Yii::t('static','SEO keywords'),

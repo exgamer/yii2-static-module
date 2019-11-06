@@ -18,10 +18,11 @@ class m191002_151217_static_table_localization extends Migration
             'id' => $this->primaryKey(),
             'entity_id' => $this->integer()->notNull(),
             'locale' => $this->integer()->notNull(),
-            'seo_name' => $this->string(1024)->notNull(),
-            'seo_title' => $this->string(175)->notNull(),
-            'seo_description' => $this->string(175)->notNull(),
-            'seo_keywords' => $this->string(175)->notNull(),
+            'seo_name' => $this->string(1024),
+            'seo_h1' => $this->string(1024),
+            'seo_title' => $this->string(175),
+            'seo_description' => $this->string(175),
+            'seo_keywords' => $this->string(175),
             'title' => $this->string(1024)->notNull(),
             'content' => $this->text()->notNull()
         ]);

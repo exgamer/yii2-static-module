@@ -37,6 +37,7 @@ class StaticBlock extends ActiveRecord
     public $title;
     public $content;
     public $seo_name;
+    public $seo_h1;
     public $seo_title;
     public $seo_description;
     public $seo_keywords;
@@ -59,12 +60,8 @@ class StaticBlock extends ActiveRecord
             [
                 [
                     'status',
-                    'user_id'
-                ],
-                'integer'
-            ],
-            [
-                [
+                    'user_id',
+                    'domain_id',
                     'locale'
                 ],
                 'integer'
@@ -79,6 +76,7 @@ class StaticBlock extends ActiveRecord
                 [
                     'title',
                     'seo_name',
+                    'seo_h1',
                 ],
                 'string',
                 'max'=>1024
@@ -113,11 +111,13 @@ class StaticBlock extends ActiveRecord
         return [
             'id' => Yii::t('static','#'),
             'user_id' => Yii::t('static','Пользователь'),
+            'domain_id' => Yii::t('static','Домен'),
             'status' => Yii::t('static','Статус'),
             'locale' => Yii::t('static','Язык'),
             'title' => Yii::t('static','Название'),
             'content' => Yii::t('static','Контент'),
             'seo_name' => Yii::t('static','SEO название'),
+            'seo_h1' => Yii::t('static','SEO H1'),
             'seo_title' => Yii::t('static','SEO title'),
             'seo_description' => Yii::t('static','SEO description'),
             'seo_keywords' => Yii::t('static','SEO keywords'),
