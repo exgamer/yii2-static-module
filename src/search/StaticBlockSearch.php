@@ -55,4 +55,10 @@ class StaticBlockSearch extends StaticBlock
             $q->andFilterWhere(['like', "{$localizedAlias}.title", $this->title]);
         };
     }
+
+    protected function extendDataProvider(ActiveDataProvider $dataProvider)
+    {
+        $this->addSortByLocalizationAttribute($dataProvider, 'seo_name');
+        $this->addSortByLocalizationAttribute($dataProvider, 'title');
+    }
 }
