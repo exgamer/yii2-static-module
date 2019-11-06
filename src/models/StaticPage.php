@@ -9,6 +9,8 @@ use concepture\yii2logic\models\ActiveRecord;
 use concepture\yii2logic\validators\TranslitValidator;
 use concepture\yii2logic\models\traits\HasLocalizationTrait;
 use concepture\yii2logic\models\traits\StatusTrait;
+use concepture\yii2domain\models\traits\DomainTrait;
+use concepture\yii2user\models\traits\UserTrait;
 
 /**
  * StaticPage model
@@ -33,6 +35,8 @@ class StaticPage extends ActiveRecord
 {
     use HasLocalizationTrait;
     use StatusTrait;
+    use DomainTrait;
+    use UserTrait;
 
     public $locale;
     public $url;
@@ -128,11 +132,6 @@ class StaticPage extends ActiveRecord
             'created_at' => Yii::t('static','Дата создания'),
             'updated_at' => Yii::t('static','Дата обновления'),
         ];
-    }
-
-    public function getUser()
-    {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 
     public function afterSave($insert, $changedAttributes)
