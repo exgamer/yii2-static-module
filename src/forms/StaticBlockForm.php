@@ -3,6 +3,7 @@ namespace concepture\yii2static\forms;
 
 
 use concepture\yii2logic\forms\Form;
+use concepture\yii2logic\enum\StatusEnum;
 use Yii;
 
 /**
@@ -22,7 +23,7 @@ class StaticBlockForm extends Form
     public $seo_title;
     public $seo_description;
     public $seo_keywords;
-    public $status = 0;
+    public $status = StatusEnum::INACTIVE;
 
     /**
      * @see Form::formRules()
