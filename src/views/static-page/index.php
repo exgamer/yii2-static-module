@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::begin(); ?>
     <div class="form-group">
         <?= Html::label(Yii::t('static', 'Версии'))?>
-        <?php foreach (Yii::$app->localeService->getAllList('id', 'locale') as $key => $locale):?>
+        <?php foreach (Yii::$app->localeService->catalog() as $key => $locale):?>
             <?= Html::a(
                 $locale,
                 \yii\helpers\Url::current(['locale' => $key]),
@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'attribute'=>'domain_id',
-                'filter'=> Yii::$app->domainService->getAllList('id', 'domain'),
+                'filter'=> Yii::$app->domainService->catalog(),
                 'value'=>function($data) {
                     return $data->getDomainName();
                 }

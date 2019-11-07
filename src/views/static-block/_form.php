@@ -10,7 +10,7 @@ use yii\widgets\Pjax;
     <?php Pjax::begin(); ?>
     <div class="form-group">
         <?= Html::label(Yii::t('static', 'Версии'))?>
-        <?php foreach (Yii::$app->localeService->getAllList('id', 'locale') as $key => $locale):?>
+        <?php foreach (Yii::$app->localeService->catalog() as $key => $locale):?>
             <?= Html::a(
                 $locale,
                 \yii\helpers\Url::current(['locale' => $key]),
@@ -35,7 +35,7 @@ use yii\widgets\Pjax;
     <?= $form->field($model, 'seo_name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'domain_id')->dropDownList(
-        Yii::$app->domainService->getAllList('id', 'domain'),
+        Yii::$app->domainService->catalog(),
         [
             'prompt' => Yii::t('backend', 'Выберите домен')
         ]
