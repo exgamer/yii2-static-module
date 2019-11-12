@@ -12,6 +12,7 @@ use concepture\yii2logic\validators\TranslitValidator;
  * @property integer $user_id
  * @property integer $sort
  * @property string $url
+ * @property string $url_md5_hash
  * @property integer $locale
  * @property string $title
  * @property string $content
@@ -66,6 +67,7 @@ class StaticPageLocalization extends ActiveRecord
                     'seo_name',
                     'seo_h1',
                     'url',
+                    'url_md5_hash',
                 ],
                 'string',
                 'max'=>1024
@@ -90,6 +92,7 @@ class StaticPageLocalization extends ActiveRecord
             'title' => Yii::t('static','Название'),
             'content' => Yii::t('static','Контент'),
             'url' => Yii::t('static','url страницы'),
+            'url_md5_hash' => Yii::t('static','md5 url страницы'),
             'seo_name' => Yii::t('static','SEO название'),
             'seo_h1' => Yii::t('static','SEO H1'),
             'seo_title' => Yii::t('static','SEO title'),

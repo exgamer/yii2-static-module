@@ -11,6 +11,7 @@ use concepture\yii2logic\models\traits\HasLocalizationTrait;
 use concepture\yii2logic\models\traits\StatusTrait;
 use concepture\yii2handbook\models\traits\DomainTrait;
 use concepture\yii2user\models\traits\UserTrait;
+use concepture\yii2logic\validators\MD5Validator;
 
 /**
  * StaticPage model
@@ -40,6 +41,7 @@ class StaticPage extends ActiveRecord
 
     public $locale;
     public $url;
+    public $url_md5_hash;
     public $title;
     public $content;
     public $seo_name;
@@ -84,9 +86,17 @@ class StaticPage extends ActiveRecord
                     'seo_name',
                     'seo_h1',
                     'url',
+                    'url_md5_hash',
                 ],
                 'string',
                 'max'=>1024
+            ],
+            [
+                [
+                    'url_md5_hash',
+                ],
+                MD5Validator::className(),
+                'source' => 'url'
             ],
             [
                 [
@@ -122,6 +132,7 @@ class StaticPage extends ActiveRecord
             'status' => Yii::t('static','Статус'),
             'locale' => Yii::t('static','Язык'),
             'url' => Yii::t('static','url страницы'),
+            'url_md5_hash' => Yii::t('static','md5 url страницы'),
             'title' => Yii::t('static','Название'),
             'content' => Yii::t('static','Контент'),
             'seo_name' => Yii::t('static','SEO название'),
