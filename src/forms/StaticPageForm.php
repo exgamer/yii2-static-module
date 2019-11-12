@@ -16,6 +16,7 @@ class StaticPageForm extends Form
     public $domain_id;
     public $locale = "ru";
     public $url;
+    public $url_md5_hash;
     public $title;
     public $content;
     public $seo_name;
