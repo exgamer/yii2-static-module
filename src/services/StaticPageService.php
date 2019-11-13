@@ -1,20 +1,19 @@
 <?php
-namespace concepture\yii2banner\services;
+namespace concepture\yii2static\services;
 
 use concepture\yii2logic\forms\Form;
 use concepture\yii2logic\services\Service;
 use Yii;
 use concepture\yii2logic\services\traits\StatusTrait;
 use concepture\yii2logic\services\traits\LocalizedReadTrait;
-use yii\db\ActiveQuery;
 use concepture\yii2logic\enum\StatusEnum;
 
 /**
- * Class BannerService
- * @package concepture\yii2banner\service
+ * Class StaticPageService
+ * @package concepture\yii2static\service
  * @author Olzhas Kulzhambekov <exgamer@live.ru>
  */
-class BannerService extends Service
+class StaticPageService extends Service
 {
     use StatusTrait;
     use LocalizedReadTrait;
@@ -25,18 +24,20 @@ class BannerService extends Service
     }
 
     /**
-     * Возвращает баннеры для текущего url по хешу md5 url
+     * Возвращает статическую страницу для текущего url по хешу md5 url
      *
      * @return array
      */
-    public function getBannersForCurrentUrl()
+    public function getPageForCurrentUrl()
     {
         $current = Yii::$app->getRequest()->getPathInfo();
         $md5 = md5($current);
+        $modelClass = $this->getRelatedModelClass();
+        $modelClass::$search_by_locale_callable = function($q, $localizedAlias) use ($md5) {
+            $q->andWhere(["{$localizedAlias}.url_md5_hash" => $md5]);
+        };
 
-        return $this->getAllByCondition(function(ActiveQuery $query) use($md5) {
-            $query->innerJoinWith('urlLinks');
-            $query->andWhere("u.url_md5_hash = :url_md5_hash", [':url_md5_hash' => $md5]);
+        return $this->getOneByCondition(function(ActiveQuery $query) {
             $query->andWhere("status = :status", [':status' => StatusEnum::ACTIVE]);
         });
     }
