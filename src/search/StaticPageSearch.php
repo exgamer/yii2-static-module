@@ -43,7 +43,7 @@ class StaticPageSearch extends StaticPage
     protected function extendQuery(ActiveQuery $query)
     {
         $query->andFilterWhere([
-            'id' => $this->id
+            static::tableName().'.id' => $this->id
         ]);
         $query->andFilterWhere([
             'status' => $this->status
