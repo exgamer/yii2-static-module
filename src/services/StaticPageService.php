@@ -7,6 +7,7 @@ use Yii;
 use concepture\yii2logic\services\traits\StatusTrait;
 use concepture\yii2logic\services\traits\LocalizedReadTrait;
 use concepture\yii2logic\enum\StatusEnum;
+use concepture\yii2logic\db\LocalizedActiveQuery;
 
 /**
  * Class StaticPageService
@@ -37,7 +38,7 @@ class StaticPageService extends Service
             $q->andWhere(["{$localizedAlias}.url_md5_hash" => $md5]);
         };
 
-        return $this->getOneByCondition(function(ActiveQuery $query) {
+        return $this->getOneByCondition(function(LocalizedActiveQuery $query) {
             $query->andWhere("status = :status", [':status' => StatusEnum::ACTIVE]);
         });
     }
