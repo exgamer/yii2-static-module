@@ -108,6 +108,7 @@ class StaticPage extends ActiveRecord
             [
                 [
                     'seo_name',
+                    'url',
                 ],
                 UniquePropertyValidator::class
             ],
