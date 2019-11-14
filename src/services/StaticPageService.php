@@ -25,7 +25,7 @@ class StaticPageService extends Service
     }
 
     /**
-     * Возвращает статическую страницу для текущего url по хешу md5 url
+     * Возвращает активную статическую страницу для текущего url по хешу md5 url
      *
      * @return array
      */
