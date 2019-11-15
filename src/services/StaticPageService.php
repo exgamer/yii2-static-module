@@ -8,6 +8,7 @@ use concepture\yii2logic\services\traits\StatusTrait;
 use concepture\yii2logic\services\traits\LocalizedReadTrait;
 use concepture\yii2logic\enum\StatusEnum;
 use concepture\yii2logic\db\LocalizedActiveQuery;
+use concepture\yii2logic\enum\IsDeletedEnum;
 
 /**
  * Class StaticPageService
@@ -40,6 +41,7 @@ class StaticPageService extends Service
 
         return $this->getOneByCondition(function(LocalizedActiveQuery $query) {
             $query->andWhere("status = :status", [':status' => StatusEnum::ACTIVE]);
+            $query->andWhere("is_deleted = :is_deleted", [':is_deleted' => IsDeletedEnum::NOT_DELETED]);
         });
     }
 }
