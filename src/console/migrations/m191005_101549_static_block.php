@@ -21,9 +21,11 @@ class m191005_101549_static_block extends Migration
             'status' => $this->smallInteger()->defaultValue(0),
             'created_at' => $this->dateTime()->defaultValue(new \yii\db\Expression("NOW()")),
             'updated_at' => $this->dateTime()->append('ON UPDATE NOW()'),
+            'is_deleted' => $this->smallInteger()->defaultValue(0),
         ]);
         $this->addIndex(['user_id']);
         $this->addIndex(['domain_id']);
         $this->addIndex(['status']);
+        $this->addIndex(['is_deleted']);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use concepture\yii2logic\enum\StatusEnum;
+use concepture\yii2logic\enum\IsDeletedEnum;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
@@ -71,7 +72,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             'created_at',
-            //'updated_at',
+            [
+                'attribute'=>'is_deleted',
+                'filter'=> IsDeletedEnum::arrayList(),
+                'value'=>function($data) {
+                    return $data->isDeletedLabel();
+                }
+            ],
 
             [
                 'class'=>'yii\grid\ActionColumn',
@@ -85,6 +92,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         );
                     },
                     'update'=> function ($url, $model) {
+                        if ($model['is_deleted'] == IsDeletedEnum::DELETED){
+                            return '';
+                        }
+
                         return Html::a(
                             '<span class="glyphicon glyphicon-pencil"></span>',
                             ['update', 'id' => $model['id'], 'locale' => $model['locale']],
@@ -92,9 +103,14 @@ $this->params['breadcrumbs'][] = $this->title;
                         );
                     },
                     'activate'=> function ($url, $model) {
+                        if ($model['is_deleted'] == IsDeletedEnum::DELETED){
+                            return '';
+                        }
+
                         if ($model['status'] == StatusEnum::ACTIVE){
                             return '';
                         }
+
                         return Html::a(
                             '<span class="glyphicon glyphicon-ok"></span>',
                             ['status-change', 'id' => $model['id'], 'status' => StatusEnum::ACTIVE],
@@ -106,9 +122,14 @@ $this->params['breadcrumbs'][] = $this->title;
                         );
                     },
                     'deactivate'=> function ($url, $model) {
+                        if ($model['is_deleted'] == IsDeletedEnum::DELETED){
+                            return '';
+                        }
+
                         if ($model['status'] == StatusEnum::INACTIVE){
                             return '';
                         }
+
                         return Html::a(
                             '<span class="glyphicon glyphicon-remove"></span>',
                             ['status-change', 'id' => $model['id'], 'status' => StatusEnum::INACTIVE],
@@ -119,7 +140,21 @@ $this->params['breadcrumbs'][] = $this->title;
                             ]
                         );
                     },
-                    'delete'
+                    'delete'=> function ($url, $model) {
+                        if ($model['is_deleted'] == IsDeletedEnum::DELETED){
+                            return '';
+                        }
+
+                        return Html::a(
+                            '<span class="glyphicon glyphicon-trash"></span>',
+                            ['delete', 'id' => $model['id']],
+                            [
+                                'title' => Yii::t('banner', 'Удалить'),
+                                'data-confirm' => Yii::t('banner', 'Удалить ?'),
+                                'data-method' => 'post',
+                            ]
+                        );
+                    }
                 ]
             ],
         ],

@@ -60,6 +60,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'created_at',
             'updated_at',
+            [
+                'attribute'=>'is_deleted',
+                'value'=>function($data) {
+                    return $data->isDeletedLabel();
+                }
+            ],
         ],
     ]) ?>
 

@@ -25,7 +25,8 @@ class StaticPageSearch extends StaticPage
                 [
                     'id',
                     'status',
-                    'domain_id'
+                    'domain_id',
+                    'is_deleted',
                 ],
                 'integer'
             ],
@@ -53,6 +54,9 @@ class StaticPageSearch extends StaticPage
         ]);
         $query->andFilterWhere([
             'url' => $this->url
+        ]);
+        $query->andFilterWhere([
+            'is_deleted' => $this->is_deleted
         ]);
         static::$search_by_locale_callable = function($q, $localizedAlias){
             $q->andFilterWhere(['like', "{$localizedAlias}.seo_name", $this->seo_name]);

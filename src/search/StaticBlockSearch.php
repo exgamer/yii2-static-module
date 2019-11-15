@@ -25,7 +25,8 @@ class StaticBlockSearch extends StaticBlock
                 [
                     'id',
                     'status',
-                    'domain_id'
+                    'domain_id',
+                    'is_deleted',
                 ],
                 'integer'
             ],
@@ -49,6 +50,9 @@ class StaticBlockSearch extends StaticBlock
         ]);
         $query->andFilterWhere([
             'domain_id' => $this->domain_id
+        ]);
+        $query->andFilterWhere([
+            'is_deleted' => $this->is_deleted
         ]);
         static::$search_by_locale_callable = function($q, $localizedAlias){
             $q->andFilterWhere(['like', "{$localizedAlias}.seo_name", $this->seo_name]);

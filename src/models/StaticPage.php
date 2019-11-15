@@ -12,6 +12,7 @@ use concepture\yii2logic\models\traits\StatusTrait;
 use concepture\yii2handbook\models\traits\DomainTrait;
 use concepture\yii2user\models\traits\UserTrait;
 use concepture\yii2logic\validators\MD5Validator;
+use concepture\yii2logic\models\traits\IsDeletedTrait;
 
 /**
  * StaticPage model
@@ -34,10 +35,13 @@ use concepture\yii2logic\validators\MD5Validator;
  */
 class StaticPage extends ActiveRecord
 {
+    public $allow_physical_delete = false;
+
     use HasLocalizationTrait;
     use StatusTrait;
     use DomainTrait;
     use UserTrait;
+    use IsDeletedTrait;
 
     public $locale;
     public $url;
@@ -143,6 +147,7 @@ class StaticPage extends ActiveRecord
             'seo_keywords' => Yii::t('static','SEO keywords'),
             'created_at' => Yii::t('static','Дата создания'),
             'updated_at' => Yii::t('static','Дата обновления'),
+            'is_deleted' => Yii::t('banner','Удален'),
         ];
     }
 
