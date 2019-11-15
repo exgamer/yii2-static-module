@@ -35,5 +35,7 @@ class m191002_151217_static_table_localization extends Migration
         $this->execute("ALTER TABLE static_page_localization
             ADD INDEX spl_url_md5_hash_index
             USING HASH (url_md5_hash);");
+        $this->addForeign('entity_id', 'static_page','id');
+        $this->addForeign('locale', 'locale','id');
     }
 }

@@ -27,5 +27,7 @@ class m191005_101549_static_block extends Migration
         $this->addIndex(['domain_id']);
         $this->addIndex(['status']);
         $this->addIndex(['is_deleted']);
+        $this->addForeign('user_id', 'user','id');
+        $this->addForeign('domain_id', 'domain','id');
     }
 }
