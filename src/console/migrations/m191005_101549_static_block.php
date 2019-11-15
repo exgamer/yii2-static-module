@@ -15,9 +15,9 @@ class m191005_101549_static_block extends Migration
     public function up()
     {
         $this->addTable([
-            'id' => $this->primaryKey(),
-            'user_id' => $this->integer()->notNull(),
-            'domain_id' => $this->integer(),
+            'id' => $this->bigPrimaryKey(),
+            'user_id' => $this->bigInteger()->notNull(),
+            'domain_id' => $this->bigInteger(),
             'status' => $this->smallInteger()->defaultValue(0),
             'created_at' => $this->dateTime()->defaultValue(new \yii\db\Expression("NOW()")),
             'updated_at' => $this->dateTime()->append('ON UPDATE NOW()'),

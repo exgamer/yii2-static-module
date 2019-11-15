@@ -15,8 +15,8 @@ class m191005_101557_static_block_localization extends Migration
     public function up()
     {
         $this->addTable([
-            'id' => $this->primaryKey(),
-            'entity_id' => $this->integer()->notNull(),
+            'id' => $this->bigPrimaryKey(),
+            'entity_id' => $this->bigInteger()->notNull(),
             'locale' => $this->integer()->notNull(),
             'seo_name' => $this->string(1024),
             'seo_h1' => $this->string(1024),
