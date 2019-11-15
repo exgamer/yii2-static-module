@@ -17,7 +17,7 @@ class m191002_151217_static_table_localization extends Migration
         $this->addTable([
             'id' => $this->bigPrimaryKey(),
             'entity_id' => $this->bigInteger()->notNull(),
-            'locale' => $this->integer()->notNull(),
+            'locale' => $this->bigInteger()->notNull(),
             'seo_name' => $this->string(1024),
             'url' => $this->string(1024),
             'url_md5_hash' => $this->string(32),
