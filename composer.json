@@ -4,6 +4,7 @@
     "type": "yii2-extension",
     "description": "package under development",
     "require": {
+        "php": ">=5.6.0",
         "concepture/yii2-logic-core": "dev-master",
         "concepture/yii2-handbook-module" : "dev-master",
         "concepture/yii2-user-module" : "dev-master",
