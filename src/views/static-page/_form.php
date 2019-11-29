@@ -42,13 +42,6 @@ use yii\widgets\Pjax;
 
     <?= $form->field($model, 'seo_keywords')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'domain_id')->dropDownList(
-        Yii::$app->domainService->catalog(),
-        [
-            'prompt' => Yii::t('backend', 'Выберите домен')
-        ]
-    );?>
-
     <div class="form-group">
         <?= Html::submitButton(Yii::t('static', 'Сохранить'), ['class' => 'btn btn-success']) ?>
     </div>

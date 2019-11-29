@@ -9,6 +9,8 @@ use concepture\yii2logic\services\traits\LocalizedReadTrait;
 use concepture\yii2logic\enum\StatusEnum;
 use concepture\yii2logic\db\LocalizedActiveQuery;
 use concepture\yii2logic\enum\IsDeletedEnum;
+use concepture\yii2handbook\services\traits\ModifySupportTrait as HandbookModifySupportTrait;
+use concepture\yii2handbook\services\traits\ReadSupportTrait as HandbookReadSupportTrait;
 
 /**
  * Class StaticPageService
@@ -19,10 +21,13 @@ class StaticPageService extends Service
 {
     use StatusTrait;
     use LocalizedReadTrait;
+    use HandbookModifySupportTrait;
+    use HandbookReadSupportTrait;
 
     protected function beforeCreate(Model $form)
     {
         $form->user_id = Yii::$app->user->identity->id;
+        $this->setCurrentDomain($form);
     }
 
     /**
@@ -46,5 +51,17 @@ class StaticPageService extends Service
             $query->andWhere("status = :status", [':status' => StatusEnum::ACTIVE]);
             $query->andWhere("is_deleted = :is_deleted", [':is_deleted' => IsDeletedEnum::NOT_DELETED]);
         });
+    }
+
+    /**
+     * Метод для расширения find()
+     * !! ВНимание эти данные будут поставлены в find по умолчанию все всех случаях
+     *
+     * @param ActiveQuery $query
+     * @see \concepture\yii2logic\services\Service::extendFindCondition()
+     */
+    protected function extendQuery(ActiveQuery $query)
+    {
+        $this->applyDomain($query);
     }
 }
