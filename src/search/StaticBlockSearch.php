@@ -40,7 +40,7 @@ class StaticBlockSearch extends StaticBlock
         ];
     }
 
-    protected function extendQuery(ActiveQuery $query)
+    public function extendQuery(ActiveQuery $query)
     {
         $query->andFilterWhere([
             static::tableName().'.id' => $this->id
@@ -60,7 +60,7 @@ class StaticBlockSearch extends StaticBlock
         };
     }
 
-    protected function extendDataProvider(ActiveDataProvider $dataProvider)
+    public function extendDataProvider(ActiveDataProvider $dataProvider)
     {
         $this->addSortByLocalizationAttribute($dataProvider, 'seo_name');
         $this->addSortByLocalizationAttribute($dataProvider, 'title');
