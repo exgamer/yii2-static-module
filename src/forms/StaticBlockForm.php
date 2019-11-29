@@ -18,11 +18,8 @@ class StaticBlockForm extends Form
     public $locale = "ru";
     public $title;
     public $content;
-    public $seo_name;
-    public $seo_h1;
-    public $seo_title;
-    public $seo_description;
-    public $seo_keywords;
+    public $alias;
+    public $alias_md5_hash;
     public $status = StatusEnum::INACTIVE;
 
     /**
@@ -36,6 +33,7 @@ class StaticBlockForm extends Form
                     'title',
                     'content',
                     'locale',
+                    'alias',
                 ],
                 'required'
             ],

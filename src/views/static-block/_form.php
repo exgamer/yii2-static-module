@@ -23,6 +23,7 @@ use yii\widgets\Pjax;
 
     <?php $form = ActiveForm::begin() ?>
     <?= $form->errorSummary($model) ?>
+    <?= $form->field($model, 'alias')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'content')->widget(CKEditor::className(),[
@@ -32,7 +33,7 @@ use yii\widgets\Pjax;
             'allowedContent' => true,
         ],
     ]); ?>
-    <?= $form->field($model, 'seo_name')->textInput(['maxlength' => true]) ?>
+
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('static', 'Сохранить'), ['class' => 'btn btn-success']) ?>

@@ -33,7 +33,8 @@ class StaticBlockSearch extends StaticBlock
             [
                 [
                     'title',
-                    'seo_name'
+                    'seo_name',
+                    'alias',
                 ],
                 'safe'
             ],
@@ -54,15 +55,18 @@ class StaticBlockSearch extends StaticBlock
         $query->andFilterWhere([
             'is_deleted' => $this->is_deleted
         ]);
+        $query->andFilterWhere([
+            'like',
+            'alias',
+            $this->alias
+        ]);
         static::$search_by_locale_callable = function($q, $localizedAlias){
-            $q->andFilterWhere(['like', "{$localizedAlias}.seo_name", $this->seo_name]);
             $q->andFilterWhere(['like', "{$localizedAlias}.title", $this->title]);
         };
     }
 
     public function extendDataProvider(ActiveDataProvider $dataProvider)
     {
-        $this->addSortByLocalizationAttribute($dataProvider, 'seo_name');
         $this->addSortByLocalizationAttribute($dataProvider, 'title');
     }
 }

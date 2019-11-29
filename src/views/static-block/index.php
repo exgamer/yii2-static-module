@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
 //                'attribute'=>'locale',
 //                'filter'=>Yii::$app->localeService->getAllList('locale', 'locale')
 //            ],
-            'seo_name',
+            'alias',
 //            [
 //                'format' => ['image',['width'=>'100']],
 //                'value'=>function($data) {

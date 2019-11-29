@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return implode(",", $model->locales());
                 }
             ],
-            'seo_name',
+            'alias',
             [
                 'attribute'=>'status',
                 'value'=>$model->statusLabel(),

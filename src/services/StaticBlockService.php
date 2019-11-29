@@ -39,4 +39,41 @@ class StaticBlockService extends Service
     {
         $this->applyDomain($query);
     }
+
+    /**
+     * Возвращает статические блоки по альясу
+     *
+     * @param string|array $alias
+     *
+     * @return ActiveRecord| array
+     */
+    public function getByAlias($alias)
+    {
+        $md5 = [];
+        if (is_array($alias)){
+            foreach ($alias as $ally){
+                $md5[] = md5($ally);
+            }
+        }else{
+            $md5[] = md5($alias);
+        }
+
+        $result = $this->getAllByCondition(function(LocalizedActiveQuery $query) use ($md5){
+            $query->andWhere(["alias_md5_hash" => $md5]);
+            $query->andWhere("status = :status", [':status' => StatusEnum::ACTIVE]);
+            $query->andWhere("is_deleted = :is_deleted", [':is_deleted' => IsDeletedEnum::NOT_DELETED]);
+            $query->indexBy('alias');
+        });
+
+        if (! $result){
+            return null;
+        }
+
+        if (! is_array($alias)){
+
+            return $result[$alias];
+        }
+
+        return $result;
+    }
 }
