@@ -34,11 +34,15 @@ class StaticPageService extends Service
     /**
      * Возвращает активную статическую страницу для текущего url по хешу md5 url
      *
+     * @param null $url
      * @return array
      */
-    public function getPageForCurrentUrl()
+    public function getPageForCurrentUrl($url = null)
     {
         $current = Yii::$app->getRequest()->getPathInfo();
+        if ($url){
+            $current = $url;
+        }
         $md5 = md5($current);
         $modelClass = $this->getRelatedModelClass();
         $modelClass::$search_by_locale_callable = function($q, $localizedAlias) use ($md5) {
