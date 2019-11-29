@@ -6,10 +6,10 @@ use yii\helpers\Html;
 /* @var $model concepture\article\models\PostCategory */
 
 $this->title = Yii::t('backend', 'Редактировать блок: {name}', [
-    'name' => $model->title,
+    'name' => $model->alias,
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('static', 'Статические блоки'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $originModel->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->alias, 'url' => ['view', 'id' => $originModel->id]];
 $this->params['breadcrumbs'][] = Yii::t('static', 'Редактировать');
 ?>
 <div class="post-category-update">

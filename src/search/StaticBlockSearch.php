@@ -32,8 +32,6 @@ class StaticBlockSearch extends StaticBlock
             ],
             [
                 [
-                    'title',
-                    'seo_name',
                     'alias',
                 ],
                 'safe'
@@ -60,13 +58,5 @@ class StaticBlockSearch extends StaticBlock
             'alias',
             $this->alias
         ]);
-        static::$search_by_locale_callable = function($q, $localizedAlias){
-            $q->andFilterWhere(['like', "{$localizedAlias}.title", $this->title]);
-        };
-    }
-
-    public function extendDataProvider(ActiveDataProvider $dataProvider)
-    {
-        $this->addSortByLocalizationAttribute($dataProvider, 'title');
     }
 }

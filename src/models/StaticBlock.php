@@ -43,7 +43,6 @@ class StaticBlock extends ActiveRecord
     use UserTrait;
 
     public $locale;
-    public $title;
     public $content;
 
 
@@ -102,7 +101,6 @@ class StaticBlock extends ActiveRecord
             'alias' => Yii::t('static','Альяс'),
             'status' => Yii::t('static','Статус'),
             'locale' => Yii::t('static','Язык'),
-            'title' => Yii::t('static','Название'),
             'content' => Yii::t('static','Контент'),
             'created_at' => Yii::t('static','Дата создания'),
             'updated_at' => Yii::t('static','Дата обновления'),

@@ -38,18 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             'id',
-            'title',
-//            [
-//                'attribute'=>'locale',
-//                'filter'=>Yii::$app->localeService->getAllList('locale', 'locale')
-//            ],
             'alias',
-//            [
-//                'format' => ['image',['width'=>'100']],
-//                'value'=>function($data) {
-//                    return $data->image;
-//                },
-//            ],
             [
                 'attribute'=>'status',
                 'filter'=> StatusEnum::arrayList(),

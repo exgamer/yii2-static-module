@@ -16,7 +16,6 @@ class StaticBlockForm extends Form
     public $user_id;
     public $domain_id;
     public $locale = "ru";
-    public $title;
     public $content;
     public $alias;
     public $alias_md5_hash;
@@ -30,7 +29,6 @@ class StaticBlockForm extends Form
         return [
             [
                 [
-                    'title',
                     'content',
                     'locale',
                     'alias',

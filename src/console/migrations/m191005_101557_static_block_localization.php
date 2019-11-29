@@ -18,7 +18,6 @@ class m191005_101557_static_block_localization extends Migration
             'id' => $this->bigPrimaryKey(),
             'entity_id' => $this->bigInteger()->notNull(),
             'locale' => $this->bigInteger()->notNull(),
-            'title' => $this->string(1024)->notNull(),
             'content' => $this->text()->notNull()
         ]);
         $this->addIndex(['entity_id']);
