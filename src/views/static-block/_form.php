@@ -42,7 +42,7 @@ use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
                         ->field($model, 'content')
                         ->widget(FroalaEditor::class, [
                             'model' => $model,
-                            'attribute' => 'value',
+                            'attribute' => 'content',
                             'clientOptions' => [
                                 'attribution' => false,
                                 'heightMin' => 200,
