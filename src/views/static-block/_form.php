@@ -1,43 +1,70 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use mihaildev\ckeditor\CKEditor;
-use yii\widgets\Pjax;
+use kamaelkz\yii2admin\v1\widgets\formelements\Pjax;
+use kamaelkz\yii2admin\v1\widgets\formelements\activeform\ActiveForm;
+use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
 ?>
 
-<div class="post-category-form">
-    <?php Pjax::begin(); ?>
-    <div class="form-group">
-        <?= Html::label(Yii::t('static', 'Версии'))?>
+<?php Pjax::begin(['formSelector' => '#user-form']); ?>
+<?php if (Yii::$app->localeService->catalogCount() > 1): ?>
+    <ul class="nav nav-tabs nav-tabs-solid nav-justified bg-light">
         <?php foreach (Yii::$app->localeService->catalog() as $key => $locale):?>
-            <?= Html::a(
-                $locale,
-                \yii\helpers\Url::current(['locale' => $key]),
-                ['class' => 'btn btn-lg btn-primary ' . ($key == $model->locale ? "active" : "")]
-            ) ?>
+            <li class="nav-item">
+                <?= Html::a(
+                    $locale,
+                    \yii\helpers\Url::current(['locale' => $key]),
+                    ['class' => 'nav-link ' . ($key ==  $model->locale   ? "active" : "")]
+                ) ?>
+            </li>
         <?php endforeach;?>
+    </ul>
+<?php endif; ?>
+<?php $form = ActiveForm::begin(['id' => 'user-form']); ?>
+    <div class="card">
+        <div class="card-body text-right">
+            <?=  Html::submitButton(
+                '<b><i class="icon-checkmark3"></i></b>' . Yii::t('yii2admin', 'Сохранить'),
+                [
+                    'class' => 'btn bg-success btn-labeled btn-labeled-left ml-1'
+                ]
+            ); ?>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <?= $form->field($model, 'alias')->textInput(['maxlength' => true]) ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <?= $form
+                        ->field($model, 'content')
+                        ->widget(FroalaEditor::class, [
+                            'model' => $model,
+                            'attribute' => 'value',
+                            'clientOptions' => [
+                                'attribution' => false,
+                                'heightMin' => 200,
+                                'toolbarSticky' => true,
+                                'toolbarInline'=> false,
+                                'theme' =>'royal', //optional: dark, red, gray, royal
+                                'language' => Yii::$app->language,
+                                'quickInsertTags' => [],
+                            ]
+                        ]);
+                    ?>
+                </div>
+            </div>
+        </div>
+        <div class="card-body text-right">
+            <?=  Html::submitButton(
+                '<b><i class="icon-checkmark3"></i></b>' . Yii::t('yii2admin', 'Сохранить'),
+                [
+                    'class' => 'btn bg-success btn-labeled btn-labeled-left ml-1'
+                ]
+            ); ?>
+        </div>
+        <?php ActiveForm::end(); ?>
     </div>
-
-
-
-    <?php $form = ActiveForm::begin() ?>
-    <?= $form->errorSummary($model) ?>
-    <?= $form->field($model, 'alias')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'content')->widget(CKEditor::className(),[
-        'editorOptions' => [
-            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-            'inline' => false, //по умолчанию false
-            'allowedContent' => true,
-        ],
-    ]); ?>
-
-
-    <div class="form-group">
-        <?= Html::submitButton(Yii::t('static', 'Сохранить'), ['class' => 'btn btn-success']) ?>
-    </div>
-
-    <?php ActiveForm::end(); ?>
-    <?php Pjax::end(); ?>
-</div>
+<?php Pjax::end(); ?>
