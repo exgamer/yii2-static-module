@@ -2,6 +2,7 @@
 namespace concepture\yii2static\models;
 
 use concepture\yii2handbook\converters\LocaleConverter;
+use concepture\yii2logic\validators\UniqueLocalizedValidator;
 use concepture\yii2user\models\User;
 use concepture\yii2logic\validators\UniquePropertyValidator;
 use Yii;
@@ -129,13 +130,6 @@ class StaticPage extends ActiveRecord
             ],
             [
                 [
-                    'seo_name',
-                    'url',
-                ],
-                UniquePropertyValidator::class
-            ],
-            [
-                [
                     'seo_title',
                     'seo_description',
                     'seo_keywords',
@@ -145,11 +139,19 @@ class StaticPage extends ActiveRecord
             ],
             [
                 [
-                    'domain_id',
-                    'url_md5_hash'
+                    'url'
                 ],
-                'unique',
-                'targetAttribute' => ['domain_id', 'url_md5_hash']
+                UniqueLocalizedValidator::class,
+                'fields' => ['domain_id'],
+                'localizedFields' => ['url_md5_hash']
+            ],
+            [
+                [
+                    'seo_name'
+                ],
+                UniqueLocalizedValidator::class,
+                'fields' => ['domain_id'],
+                'localizedFields' => ['seo_name', 'locale']
             ]
         ];
     }
