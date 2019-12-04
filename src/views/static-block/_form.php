@@ -6,7 +6,7 @@ use kamaelkz\yii2admin\v1\widgets\formelements\activeform\ActiveForm;
 use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
 ?>
 
-<?php Pjax::begin(['formSelector' => '#user-form']); ?>
+<?php Pjax::begin(['formSelector' => '#static-block-form']); ?>
 <?php if (Yii::$app->localeService->catalogCount() > 1): ?>
     <ul class="nav nav-tabs nav-tabs-solid nav-justified bg-light">
         <?php foreach (Yii::$app->localeService->catalog() as $key => $locale):?>
@@ -20,7 +20,7 @@ use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
         <?php endforeach;?>
     </ul>
 <?php endif; ?>
-<?php $form = ActiveForm::begin(['id' => 'user-form']); ?>
+<?php $form = ActiveForm::begin(['id' => 'static-block-form']); ?>
     <div class="card">
         <div class="card-body text-right">
             <?=  Html::submitButton(

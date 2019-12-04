@@ -29,7 +29,7 @@ class m191005_101549_static_block extends Migration
         $this->execute("ALTER TABLE static_block
             ADD INDEX spl_alias_md5_hash_index
             USING HASH (alias_md5_hash);");
-        $this->addUniqueIndex(['alias_md5_hash']);
+        $this->addUniqueIndex(['alias_md5_hash', 'domain_id']);
         $this->addIndex(['user_id']);
         $this->addIndex(['domain_id']);
         $this->addIndex(['status']);

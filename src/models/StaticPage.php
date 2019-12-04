@@ -142,6 +142,14 @@ class StaticPage extends ActiveRecord
                 ],
                 'string',
                 'max'=>175
+            ],
+            [
+                [
+                    'domain_id',
+                    'url_md5_hash'
+                ],
+                'unique',
+                'targetAttribute' => ['domain_id', 'url_md5_hash']
             ]
         ];
     }
