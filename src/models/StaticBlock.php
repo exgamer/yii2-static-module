@@ -107,6 +107,14 @@ class StaticBlock extends ActiveRecord
                 MD5Validator::className(),
                 'source' => 'alias'
             ],
+            [
+                [
+                    'domain_id',
+                    'alias_md5_hash'
+                ],
+                'unique',
+                'targetAttribute' => ['domain_id', 'alias_md5_hash']
+            ]
         ];
     }
 
