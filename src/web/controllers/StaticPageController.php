@@ -4,8 +4,8 @@ namespace concepture\yii2static\web\controllers;
 
 use concepture\yii2user\enum\UserRoleEnum;
 use concepture\yii2logic\controllers\web\localized\Controller;
-use concepture\yii2logic\controllers\web\localized\StatusChangeAction;
-use concepture\yii2logic\controllers\web\localized\UndeleteAction;
+use concepture\yii2logic\actions\web\localized\StatusChangeAction;
+use concepture\yii2logic\actions\web\localized\UndeleteAction;
 
 /**
  * Class StaticPageController
