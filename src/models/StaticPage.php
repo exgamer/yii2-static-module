@@ -118,14 +118,14 @@ class StaticPage extends ActiveRecord
                 [
                     'url_md5_hash',
                 ],
-                MD5Validator::className(),
+                MD5Validator::class,
                 'source' => 'url'
             ],
             [
                 [
                     'seo_name',
                 ],
-                TranslitValidator::className(),
+                TranslitValidator::class,
                 'source' => 'title'
             ],
             [
