@@ -2,9 +2,9 @@
 
 return [
     'staticPageService' => [
-        'class' => '\concepture\yii2static\services\StaticPageService'
+        'class' => 'concepture\yii2static\services\StaticPageService'
     ],
     'staticBlockService' => [
-        'class' => '\concepture\yii2static\services\StaticBlockService'
+        'class' => 'concepture\yii2static\services\StaticBlockService'
     ],
 ];
