@@ -103,7 +103,7 @@ $this->viewHelper()->pushPageHeader();
 
                     return Html::a(
                         '<i class="icon-checkmark4"></i>'. Yii::t('yii2admin', 'Активировать'),
-                        ['status-change', 'id' => $model['id'], 'status' => StatusEnum::ACTIVE],
+                        ['status-change', 'id' => $model['id'], 'status' => StatusEnum::ACTIVE, 'locale' => $model['locale']],
                         [
                             'class' => 'admin-action dropdown-item',
                             'data-pjax-id' => 'list-pjax',
@@ -121,7 +121,7 @@ $this->viewHelper()->pushPageHeader();
                     }
                     return Html::a(
                         '<i class="icon-cross2"></i>'. Yii::t('yii2admin', 'Деактивировать'),
-                        ['status-change', 'id' => $model['id'], 'status' => StatusEnum::INACTIVE],
+                        ['status-change', 'id' => $model['id'], 'status' => StatusEnum::INACTIVE, 'locale' => $model['locale']],
                         [
                             'class' => 'admin-action dropdown-item',
                             'data-pjax-id' => 'list-pjax',
@@ -137,7 +137,7 @@ $this->viewHelper()->pushPageHeader();
 
                     return Html::a(
                         '<i class="icon-trash"></i>'. Yii::t('yii2admin', 'Удалить'),
-                        ['delete', 'id' => $model['id']],
+                        ['delete', 'id' => $model['id'], 'locale' => $model['locale']],
                         [
                             'class' => 'admin-action dropdown-item',
                             'data-pjax-id' => 'list-pjax',
