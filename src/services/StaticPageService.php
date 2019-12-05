@@ -12,6 +12,7 @@ use concepture\yii2logic\db\LocalizedActiveQuery;
 use concepture\yii2logic\enum\IsDeletedEnum;
 use concepture\yii2handbook\services\traits\ModifySupportTrait as HandbookModifySupportTrait;
 use concepture\yii2handbook\services\traits\ReadSupportTrait as HandbookReadSupportTrait;
+use concepture\yii2handbook\services\traits\EntityTypeSupportTrait;
 
 /**
  * Class StaticPageService
@@ -24,6 +25,7 @@ class StaticPageService extends Service
     use LocalizedReadTrait;
     use HandbookModifySupportTrait;
     use HandbookReadSupportTrait;
+    use EntityTypeSupportTrait;
 
     protected function beforeCreate(Model $form)
     {
