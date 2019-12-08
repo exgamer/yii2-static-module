@@ -60,7 +60,7 @@ class StaticBlockService extends Service
             $md5[] = md5($alias);
         }
 
-        $result = $this->getAllByCondition(function(LocalizedActiveQuery $query) use ($md5){
+        $result = $this->getAllByCondition(function(ActiveQuery $query) use ($md5){
             $query->andWhere(["alias_md5_hash" => $md5]);
             $query->andWhere("status = :status", [':status' => StatusEnum::ACTIVE]);
             $query->andWhere("is_deleted = :is_deleted", [':is_deleted' => IsDeletedEnum::NOT_DELETED]);
