@@ -2,7 +2,6 @@
 
 use yii\db\Migration;
 use concepture\yii2handbook\forms\EntityTypeForm;
-use Yii;
 
 /**
  * Class m191108_102328__add_entity_types
