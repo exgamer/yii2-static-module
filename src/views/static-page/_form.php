@@ -70,6 +70,36 @@ use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
     <div class="card">
         <div class="card-header header-elements-inline">
             <h5 class="card-title">
+                <?= Yii::t('yii2admin', 'SEO') ;?>
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <?= $form->field($model, 'seo_name')->textInput(['maxlength' => true]) ?>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <?= $form->field($model, 'seo_h1')->textInput(['maxlength' => true]) ?>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <?= $form->field($model, 'seo_title')->textInput(['maxlength' => true]) ?>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <?= $form->field($model, 'seo_description')->textInput(['maxlength' => true]) ?>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <?= $form->field($model, 'seo_keywords')->textInput(['maxlength' => true]) ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header header-elements-inline">
+            <h5 class="card-title">
                 <?= Yii::t('yii2admin', 'Дополнительно') ;?>
             </h5>
         </div>
@@ -98,35 +128,6 @@ use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
         </div>
     </div>
 
-    <div class="card">
-        <div class="card-header header-elements-inline">
-            <h5 class="card-title">
-                <?= Yii::t('yii2admin', 'SEO') ;?>
-            </h5>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <?= $form->field($model, 'seo_name')->textInput(['maxlength' => true]) ?>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <?= $form->field($model, 'seo_h1')->textInput(['maxlength' => true]) ?>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <?= $form->field($model, 'seo_title')->textInput(['maxlength' => true]) ?>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <?= $form->field($model, 'seo_description')->textInput(['maxlength' => true]) ?>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <?= $form->field($model, 'seo_keywords')->textInput(['maxlength' => true]) ?>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="card">
         <div class="card-body text-right">
             <?=  Html::submitButton(
