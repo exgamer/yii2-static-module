@@ -45,6 +45,8 @@ class StaticPageService extends Service
         $current = Yii::$app->getRequest()->getPathInfo();
         if ($url){
             $current = $url;
+        } else {
+            $current = trim($current, '/');
         }
         $md5 = md5($current);
         $modelClass = $this->getRelatedModelClass();
