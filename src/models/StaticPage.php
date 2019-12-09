@@ -54,6 +54,7 @@ class StaticPage extends ActiveRecord
     public $seo_title;
     public $seo_description;
     public $seo_keywords;
+    public $can_comment;
 
     /**
      * @see \concepture\yii2logic\models\ActiveRecord:label()
@@ -93,7 +94,8 @@ class StaticPage extends ActiveRecord
                     'status',
                     'user_id',
                     'domain_id',
-                    'locale'
+                    'locale',
+                    'can_comment'
                 ],
                 'integer'
             ],
@@ -175,7 +177,8 @@ class StaticPage extends ActiveRecord
             'seo_keywords' => Yii::t('static','SEO keywords'),
             'created_at' => Yii::t('static','Дата создания'),
             'updated_at' => Yii::t('static','Дата обновления'),
-            'is_deleted' => Yii::t('banner','Удален'),
+            'is_deleted' => Yii::t('static','Удален'),
+            'can_comment' => Yii::t('static','Комментарии'),
         ];
     }
 

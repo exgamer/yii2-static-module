@@ -25,6 +25,7 @@ class StaticPageForm extends Form
     public $seo_description;
     public $seo_keywords;
     public $status = 0;
+    public $can_comment = 0;
 
     /**
      * @see CForm::formRules()

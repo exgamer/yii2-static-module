@@ -70,6 +70,37 @@ use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
     <div class="card">
         <div class="card-header header-elements-inline">
             <h5 class="card-title">
+                <?= Yii::t('yii2admin', 'Дополнительно') ;?>
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <?= $form
+                        ->field($model, 'can_comment', [
+                            'template' => '
+                                            <div class="form-check form-check-inline mt-2">
+                                                {input}
+                                            </div>
+                                            {error}
+                                        '
+                        ])
+                        ->checkbox(
+                            [
+                                'class' => 'form-check-input-styled-primary',
+                                'labelOptions' => ['class' => 'form-check-label control-label']
+                            ],
+                            true
+                        );
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header header-elements-inline">
+            <h5 class="card-title">
                 <?= Yii::t('yii2admin', 'SEO') ;?>
             </h5>
         </div>
