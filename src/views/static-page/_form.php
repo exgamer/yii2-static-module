@@ -33,12 +33,10 @@ use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
     </div>
 
     <div class="card">
-        <div class="card-header header-elements-inline">
-            <h5 class="card-title">
-                <?= Yii::t('yii2admin', 'Контент') ;?>
-            </h5>
-        </div>
         <div class="card-body">
+            <legend class="font-weight-semibold text-uppercase font-size-sm">
+                <?= Yii::t('yii2admin', 'Основные данные') ;?>
+            </legend>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
@@ -64,16 +62,9 @@ use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
                     ?>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header header-elements-inline">
-            <h5 class="card-title">
-                <?= Yii::t('yii2admin', 'SEO') ;?>
-            </h5>
-        </div>
-        <div class="card-body">
+            <legend class="font-weight-semibold text-uppercase font-size-sm">
+                <?= Yii::t('yii2admin', 'SEO настройки') ;?>
+            </legend>
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <?= $form->field($model, 'seo_name')->textInput(['maxlength' => true]) ?>
@@ -91,16 +82,9 @@ use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
                     <?= $form->field($model, 'seo_keywords')->textInput(['maxlength' => true]) ?>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header header-elements-inline">
-            <h5 class="card-title">
+            <legend class="font-weight-semibold text-uppercase font-size-sm">
                 <?= Yii::t('yii2admin', 'Дополнительно') ;?>
-            </h5>
-        </div>
-        <div class="card-body">
+            </legend>
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <?= $form
