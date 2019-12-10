@@ -21,7 +21,6 @@ use concepture\yii2logic\models\traits\IsDeletedTrait;
  * @property integer $id
  * @property integer $user_id
  * @property integer $locale
- * @property string $url
  * @property string $title
  * @property string $content
  * @property string $seo_name
@@ -45,8 +44,7 @@ class StaticPage extends ActiveRecord
     use IsDeletedTrait;
 
     public $locale;
-    public $url;
-    public $url_md5_hash;
+    public $seo_name_md5_hash;
     public $title;
     public $content;
     public $seo_name;
@@ -110,18 +108,10 @@ class StaticPage extends ActiveRecord
                     'title',
                     'seo_name',
                     'seo_h1',
-                    'url',
-                    'url_md5_hash',
+                    'seo_name_md5_hash',
                 ],
                 'string',
                 'max'=>1024
-            ],
-            [
-                [
-                    'url_md5_hash',
-                ],
-                MD5Validator::class,
-                'source' => 'url'
             ],
             [
                 [
@@ -132,20 +122,19 @@ class StaticPage extends ActiveRecord
             ],
             [
                 [
+                    'seo_name_md5_hash',
+                ],
+                MD5Validator::class,
+                'source' => 'seo_name'
+            ],
+            [
+                [
                     'seo_title',
                     'seo_description',
                     'seo_keywords',
                 ],
                 'string',
                 'max'=>175
-            ],
-            [
-                [
-                    'url'
-                ],
-                UniqueLocalizedValidator::class,
-                'fields' => ['domain_id'],
-                'localizedFields' => ['url_md5_hash']
             ],
             [
                 [
@@ -166,15 +155,13 @@ class StaticPage extends ActiveRecord
             'domain_id' => Yii::t('static','Домен'),
             'status' => Yii::t('static','Статус'),
             'locale' => Yii::t('static','Язык'),
-            'url' => Yii::t('static','url страницы'),
-            'url_md5_hash' => Yii::t('static','md5 url страницы'),
             'title' => Yii::t('static','Название'),
             'content' => Yii::t('static','Контент'),
-            'seo_name' => Yii::t('static','SEO название'),
-            'seo_h1' => Yii::t('static','SEO H1'),
-            'seo_title' => Yii::t('static','SEO title'),
-            'seo_description' => Yii::t('static','SEO description'),
-            'seo_keywords' => Yii::t('static','SEO keywords'),
+            'seo_name' => Yii::t('static','SEO имя'),
+            'seo_h1' => Yii::t('static','H1'),
+            'seo_title' => Yii::t('static','title'),
+            'seo_description' => Yii::t('static','description'),
+            'seo_keywords' => Yii::t('static','keywords'),
             'created_at' => Yii::t('static','Дата создания'),
             'updated_at' => Yii::t('static','Дата обновления'),
             'is_deleted' => Yii::t('static','Удален'),

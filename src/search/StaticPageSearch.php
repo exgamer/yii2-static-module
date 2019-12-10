@@ -33,8 +33,7 @@ class StaticPageSearch extends StaticPage
             [
                 [
                     'title',
-                    'seo_name',
-                    'url'
+                    'seo_name'
                 ],
                 'safe'
             ],
@@ -51,9 +50,6 @@ class StaticPageSearch extends StaticPage
         ]);
         $query->andFilterWhere([
             'domain_id' => $this->domain_id
-        ]);
-        $query->andFilterWhere([
-            'url' => $this->url
         ]);
         $query->andFilterWhere([
             'is_deleted' => $this->is_deleted
