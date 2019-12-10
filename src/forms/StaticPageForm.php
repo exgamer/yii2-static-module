@@ -2,7 +2,7 @@
 namespace concepture\yii2static\forms;
 
 
-use concepture\yii2logic\forms\Form;
+use kamaelkz\yii2admin\v1\forms\BaseForm;
 use Yii;
 
 /**
@@ -10,7 +10,7 @@ use Yii;
  * @package concepture\yii2static\forms
  * @author Olzhas Kulzhambekov <exgamer@live.ru>
  */
-class StaticPageForm extends Form
+class StaticPageForm extends BaseForm
 {
     public $user_id;
     public $domain_id;
