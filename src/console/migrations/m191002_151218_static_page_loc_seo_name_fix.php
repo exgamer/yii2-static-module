@@ -12,7 +12,7 @@ class m191002_151218_static_page_loc_seo_name_fix extends Migration
         return 'static_page_localization';
     }
 
-    public function up()
+    public function safeUp()
     {
         $this->removeColumn("url");
         $this->removeColumn("url_md5_hash");
