@@ -121,6 +121,26 @@ use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
                         );
                     ?>
                 </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <?= $form
+                        ->field($model, 'status', [
+                            'template' => '
+                                            <div class="form-check form-check-inline mt-2">
+                                                {input}
+                                            </div>
+                                            {error}
+                                        '
+                        ])
+                        ->checkbox(
+                            [
+                                'class' => 'form-check-input-styled-primary',
+                                'labelOptions' => ['class' => 'form-check-label control-label']
+                            ],
+                            true
+                        )
+                        ->label(Yii::t('yii2admin', 'Активировано'));;
+                    ?>
+                </div>
             </div>
         </div>
     </div>
