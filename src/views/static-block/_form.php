@@ -71,12 +71,12 @@ use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
                         ])
                         ->checkbox(
                             [
+                                'label' => Yii::t('yii2admin', 'Активировано'),
                                 'class' => 'form-check-input-styled-primary',
                                 'labelOptions' => ['class' => 'form-check-label control-label']
                             ],
                             true
-                        )
-                    ->label(Yii::t('yii2admin', 'Активировано'));
+                        );
                     ?>
                 </div>
             </div>
