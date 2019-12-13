@@ -63,7 +63,7 @@ use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
                 </div>
             </div>
             <legend class="font-weight-semibold text-uppercase font-size-sm">
-                <?= Yii::t('yii2admin', 'SEO настройки') ;?>
+                <?= Yii::t('yii2admin', 'SEO') ;?>
             </legend>
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12">

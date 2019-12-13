@@ -130,7 +130,7 @@ class StaticBlock extends ActiveRecord
             'content' => Yii::t('static','Контент'),
             'created_at' => Yii::t('static','Дата создания'),
             'updated_at' => Yii::t('static','Дата обновления'),
-            'is_deleted' => Yii::t('banner','Удален'),
+            'is_deleted' => Yii::t('static','Удален'),
         ];
     }
 
