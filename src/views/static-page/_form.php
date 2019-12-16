@@ -44,22 +44,12 @@ use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <?= $form
-                        ->field($model, 'content')
-                        ->widget(FroalaEditor::class, [
-                            'model' => $model,
-                            'attribute' => 'content',
-                            'clientOptions' => [
-                                'attribution' => false,
-                                'heightMin' => 200,
-                                'toolbarSticky' => true,
-                                'toolbarInline'=> false,
-                                'theme' =>'royal', //optional: dark, red, gray, royal
-                                'language' => Yii::$app->language,
-                                'quickInsertTags' => [],
-                            ]
-                        ]);
-                    ?>
+                    <?= $this->render('/include/_editor.php', [
+                        'form' => $form,
+                        'model' => $model,
+                        'attribute' => 'content',
+                        'originModel' => $originModel
+                    ]) ?>
                 </div>
             </div>
             <legend class="font-weight-semibold text-uppercase font-size-sm">
