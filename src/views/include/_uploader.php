@@ -4,9 +4,10 @@ use kamaelkz\yii2cdnuploader\widgets\Uploader;
 use concepture\yii2handbook\enum\TargetAttributeEnum;
 use kamaelkz\yii2admin\v1\modules\uikit\enum\UiikitEnum;
 use kamaelkz\yii2cdnuploader\enum\StrategiesEnum;
+use kamaelkz\yii2cdnuploader\enum\UploaderTypeEnum;
 ?>
 
-<?php if (isset(Yii::$app->params['concepture']['uploader']['type']) && Yii::$app->params['concepture']['uploader']['type'] === 'local'):?>
+<?php if (isset(Yii::$app->params['concepture']['uploader']['type']) && Yii::$app->params['concepture']['uploader']['type'] === UploaderTypeEnum::LOCAL):?>
     <?= $form
         ->field($model, $attribute)
         ->widget(Uploader::class, [

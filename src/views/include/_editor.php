@@ -1,10 +1,11 @@
 <?php
 use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
 use mihaildev\ckeditor\CKEditor;
+use concepture\yii2logic\enum\EditorTypeEnum;
 
 ?>
 
-<?php if (isset(Yii::$app->params['concepture']['editor']['type']) && Yii::$app->params['concepture']['editor']['type'] === 'cke'):?>
+<?php if (isset(Yii::$app->params['concepture']['editor']['type']) && Yii::$app->params['concepture']['editor']['type'] === EditorTypeEnum::CKE):?>
 
 <?= $form->field($model, $attribute)->widget(CKEditor::className(),[
     'editorOptions' => [
