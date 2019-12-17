@@ -1,7 +1,7 @@
 <?php
 namespace concepture\yii2static\services;
 
-use concepture\yii2core\enum\StatusEnum;
+use concepture\yii2logic\enum\StatusEnum;
 use concepture\yii2logic\enum\IsDeletedEnum;
 use yii\db\ActiveQuery;
 use concepture\yii2logic\forms\Model;
