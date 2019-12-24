@@ -22,7 +22,7 @@ class m191005_101549_static_block extends Migration
             'alias_md5_hash' => $this->string(32),
             'status' => $this->smallInteger()->defaultValue(0),
             'created_at' => $this->dateTime()->defaultValue(new \yii\db\Expression("NOW()")),
-            'updated_at' => $this->dateTime()->append('ON UPDATE NOW()'),
+            'updated_at' => $this->dateTime(),
             'is_deleted' => $this->smallInteger()->defaultValue(0),
         ]);
         $this->addIndex(['alias']);
