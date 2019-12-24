@@ -26,9 +26,15 @@ class m191005_101549_static_block extends Migration
             'is_deleted' => $this->smallInteger()->defaultValue(0),
         ]);
         $this->addIndex(['alias']);
-        $this->execute("ALTER TABLE static_block
-            ADD INDEX spl_alias_md5_hash_index
+        if ($this->isMysql()) {
+            $this->execute("ALTER TABLE static_block
+            ADD INDEX sbl_alias_md5_hash_index
             USING HASH (alias_md5_hash);");
+        }
+        if ($this->isPostgres()) {
+            $this->execute("CREATE INDEX sbl_alias_md5_hash_index 
+            ON static_block USING HASH (alias_md5_hash);;");
+        }
         $this->addUniqueIndex(['alias_md5_hash', 'domain_id']);
         $this->addIndex(['user_id']);
         $this->addIndex(['domain_id']);
