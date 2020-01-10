@@ -57,7 +57,7 @@ use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
             </legend>
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12">
-                    <?= $form->field($model, 'seo_name')->textInput(['maxlength' => true]) ?>
+                    <?= $form->field($model, 'seo_name')->textInput(['maxlength' => true, 'disabled' => isset($originModel) ? true : false]) ?>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <?= $form->field($model, 'seo_h1')->textInput(['maxlength' => true]) ?>
