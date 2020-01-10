@@ -2,6 +2,7 @@
 namespace concepture\yii2static\models;
 
 use concepture\yii2handbook\converters\LocaleConverter;
+use concepture\yii2logic\validators\SeoNameValidator;
 use concepture\yii2logic\validators\UniqueLocalizedValidator;
 use concepture\yii2user\models\User;
 use concepture\yii2logic\validators\UniquePropertyValidator;
@@ -117,8 +118,15 @@ class StaticPage extends ActiveRecord
                 [
                     'seo_name',
                 ],
+                SeoNameValidator::class
+            ],
+            [
+                [
+                    'seo_name',
+                ],
                 TranslitValidator::class,
-                'source' => 'title'
+                'source' => 'seo_h1',
+                'secondary_source' => 'title',
             ],
             [
                 [
