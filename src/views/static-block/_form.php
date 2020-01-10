@@ -42,7 +42,7 @@ use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
                         'form' => $form,
                         'model' => $model,
                         'attribute' => 'content',
-                        'originModel' => $originModel
+                        'originModel' => isset($originModel) ? $originModel : null
                     ]) ?>
                 </div>
             </div>

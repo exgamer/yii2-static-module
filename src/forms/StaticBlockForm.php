@@ -15,7 +15,7 @@ class StaticBlockForm extends Form
 {
     public $user_id;
     public $domain_id;
-    public $locale = "ru";
+    public $locale;
     public $content;
     public $alias;
     public $alias_md5_hash;
