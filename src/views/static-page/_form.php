@@ -4,6 +4,21 @@ use yii\helpers\Html;
 use kamaelkz\yii2admin\v1\widgets\formelements\Pjax;
 use kamaelkz\yii2admin\v1\widgets\formelements\activeform\ActiveForm;
 use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
+
+$saveRedirectButton = Html::submitButton(
+    '<b><i class="icon-list"></i></b>' . Yii::t('yii2admin', 'Сохранить и перейти к списку'),
+    [
+        'class' => 'btn bg-info btn-labeled btn-labeled-left ml-1',
+        'name' => \kamaelkz\yii2admin\v1\helpers\RequestHelper::REDIRECT_BTN_PARAM,
+        'value' => 'index'
+    ]
+);
+$saveButton = Html::submitButton(
+    '<b><i class="icon-checkmark3"></i></b>' . Yii::t('yii2admin', 'Сохранить'),
+    [
+        'class' => 'btn bg-success btn-labeled btn-labeled-left ml-1'
+    ]
+);
 ?>
 
 <?php Pjax::begin(['formSelector' => '#static-page-form']); ?>
@@ -23,12 +38,8 @@ use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
 <?php $form = ActiveForm::begin(['id' => 'static-page-form']); ?>
     <div class="card">
         <div class="card-body text-right">
-            <?=  Html::submitButton(
-                '<b><i class="icon-checkmark3"></i></b>' . Yii::t('yii2admin', 'Сохранить'),
-                [
-                    'class' => 'btn bg-success btn-labeled btn-labeled-left ml-1'
-                ]
-            ); ?>
+            <?= $saveRedirectButton?>
+            <?= $saveButton?>
         </div>
     </div>
 
@@ -121,12 +132,8 @@ use kamaelkz\yii2admin\v1\widgets\formelements\editors\froala\FroalaEditor;
 
     <div class="card">
         <div class="card-body text-right">
-            <?=  Html::submitButton(
-                '<b><i class="icon-checkmark3"></i></b>' . Yii::t('yii2admin', 'Сохранить'),
-                [
-                    'class' => 'btn bg-success btn-labeled btn-labeled-left ml-1'
-                ]
-            ); ?>
+            <?= $saveRedirectButton?>
+            <?= $saveButton?>
         </div>
     </div>
 <?php ActiveForm::end(); ?>
