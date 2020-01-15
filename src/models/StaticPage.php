@@ -138,17 +138,17 @@ class StaticPage extends ActiveRecord
         return ArrayHelper::merge(
             $this->seoAttributeLabels(),
             [
-            'id' => Yii::t('static','#'),
-            'user_id' => Yii::t('static','Пользователь'),
-            'domain_id' => Yii::t('static','Домен'),
-            'status' => Yii::t('static','Статус'),
-            'locale' => Yii::t('static','Язык'),
-            'title' => Yii::t('static','Название'),
-            'content' => Yii::t('static','Контент'),
-            'created_at' => Yii::t('static','Дата создания'),
-            'updated_at' => Yii::t('static','Дата обновления'),
-            'is_deleted' => Yii::t('static','Удален'),
-            'can_comment' => Yii::t('static','Комментарии'),
+                'id' => Yii::t('static','#'),
+                'user_id' => Yii::t('static','Пользователь'),
+                'domain_id' => Yii::t('static','Домен'),
+                'status' => Yii::t('static','Статус'),
+                'locale' => Yii::t('static','Язык'),
+                'title' => Yii::t('static','Название'),
+                'content' => Yii::t('static','Контент'),
+                'created_at' => Yii::t('static','Дата создания'),
+                'updated_at' => Yii::t('static','Дата обновления'),
+                'is_deleted' => Yii::t('static','Удален'),
+                'can_comment' => Yii::t('static','Комментарии'),
             ]
         );
     }
