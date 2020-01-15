@@ -2,6 +2,8 @@
 namespace concepture\yii2static\models;
 
 use concepture\yii2handbook\converters\LocaleConverter;
+use concepture\yii2logic\models\traits\SeoTrait;
+use concepture\yii2logic\traits\SeoPropertyTrait;
 use concepture\yii2logic\validators\SeoNameValidator;
 use concepture\yii2logic\validators\UniqueLocalizedValidator;
 use concepture\yii2user\models\User;
@@ -15,6 +17,7 @@ use concepture\yii2handbook\models\traits\DomainTrait;
 use concepture\yii2user\models\traits\UserTrait;
 use concepture\yii2logic\validators\MD5Validator;
 use concepture\yii2logic\models\traits\IsDeletedTrait;
+use yii\helpers\ArrayHelper;
 
 /**
  * StaticPage model
@@ -43,16 +46,13 @@ class StaticPage extends ActiveRecord
     use DomainTrait;
     use UserTrait;
     use IsDeletedTrait;
+    use SeoPropertyTrait;
+    use SeoTrait;
 
     public $locale;
     public $seo_name_md5_hash;
     public $title;
     public $content;
-    public $seo_name;
-    public $seo_h1;
-    public $seo_title;
-    public $seo_description;
-    public $seo_keywords;
     public $can_comment;
 
     /**
@@ -87,7 +87,9 @@ class StaticPage extends ActiveRecord
      */
     public function rules()
     {
-        return [
+        return ArrayHelper::merge(
+            $this->seoRules(),
+            [
             [
                 [
                     'status',
@@ -107,26 +109,10 @@ class StaticPage extends ActiveRecord
             [
                 [
                     'title',
-                    'seo_name',
-                    'seo_h1',
                     'seo_name_md5_hash',
                 ],
                 'string',
                 'max'=>1024
-            ],
-            [
-                [
-                    'seo_name',
-                ],
-                SeoNameValidator::class
-            ],
-            [
-                [
-                    'seo_name',
-                ],
-                TranslitValidator::class,
-                'source' => 'seo_h1',
-                'secondary_source' => 'title',
             ],
             [
                 [
@@ -137,27 +123,21 @@ class StaticPage extends ActiveRecord
             ],
             [
                 [
-                    'seo_title',
-                    'seo_description',
-                    'seo_keywords',
-                ],
-                'string',
-                'max'=>175
-            ],
-            [
-                [
                     'seo_name'
                 ],
                 UniqueLocalizedValidator::class,
                 'fields' => ['domain_id'],
                 'localizedFields' => ['seo_name', 'locale']
             ]
-        ];
+            ]
+        );
     }
 
     public function attributeLabels()
     {
-        return [
+        return ArrayHelper::merge(
+            $this->seoAttributeLabels(),
+            [
             'id' => Yii::t('static','#'),
             'user_id' => Yii::t('static','Пользователь'),
             'domain_id' => Yii::t('static','Домен'),
@@ -165,16 +145,12 @@ class StaticPage extends ActiveRecord
             'locale' => Yii::t('static','Язык'),
             'title' => Yii::t('static','Название'),
             'content' => Yii::t('static','Контент'),
-            'seo_name' => Yii::t('static','SEO имя'),
-            'seo_h1' => Yii::t('static','H1'),
-            'seo_title' => Yii::t('static','title'),
-            'seo_description' => Yii::t('static','description'),
-            'seo_keywords' => Yii::t('static','keywords'),
             'created_at' => Yii::t('static','Дата создания'),
             'updated_at' => Yii::t('static','Дата обновления'),
             'is_deleted' => Yii::t('static','Удален'),
             'can_comment' => Yii::t('static','Комментарии'),
-        ];
+            ]
+        );
     }
 
     public function afterSave($insert, $changedAttributes)
