@@ -46,14 +46,14 @@ class StaticPage extends ActiveRecord
     use DomainTrait;
     use UserTrait;
     use IsDeletedTrait;
-    use SeoPropertyTrait;
+//    use SeoPropertyTrait;
     use SeoTrait;
 
-    public $locale;
-    public $seo_name_md5_hash;
-    public $title;
-    public $content;
-    public $can_comment;
+//    public $locale;
+//    public $seo_name_md5_hash;
+//    public $title;
+//    public $content;
+//    public $can_comment;
 
     /**
      * @see \concepture\yii2logic\models\ActiveRecord:label()

@@ -42,8 +42,8 @@ class StaticBlock extends ActiveRecord
     use DomainTrait;
     use UserTrait;
 
-    public $locale;
-    public $content;
+//    public $locale;
+//    public $content;
 
     /**
      * @see \concepture\yii2logic\models\ActiveRecord:label()
