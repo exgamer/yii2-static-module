@@ -30,6 +30,7 @@ class StaticBlockService extends Service
     {
         $this->setCurrentUser($form);
         $this->setCurrentDomain($form);
+        parent::beforeCreate($form);
     }
 
     /**
