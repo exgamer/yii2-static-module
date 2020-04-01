@@ -14,7 +14,6 @@ use yii\data\ActiveDataProvider;
  */
 class StaticBlockSearch extends StaticBlock
 {
-
     /**
      * {@inheritdoc}
      */

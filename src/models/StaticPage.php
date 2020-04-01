@@ -25,7 +25,7 @@ use yii\helpers\ArrayHelper;
  * @property integer $id
  * @property integer $user_id
  * @property integer $locale
- * @property string $title
+ * @property string $header
  * @property string $content
  * @property string $seo_name
  * @property string $seo_title
@@ -71,7 +71,7 @@ class StaticPage extends ActiveRecord
      */
     public function toString()
     {
-        return $this->title;
+        return $this->header;
     }
 
     /**
@@ -108,7 +108,7 @@ class StaticPage extends ActiveRecord
             ],
             [
                 [
-                    'title',
+                    'header',
                     'seo_name_md5_hash',
                 ],
                 'string',
@@ -143,7 +143,7 @@ class StaticPage extends ActiveRecord
                 'domain_id' => Yii::t('static','Домен'),
                 'status' => Yii::t('static','Статус'),
                 'locale' => Yii::t('static','Язык'),
-                'title' => Yii::t('static','Название'),
+                'header' => Yii::t('static','Заголовок (H1)'),
                 'content' => Yii::t('static','Контент'),
                 'created_at' => Yii::t('static','Дата создания'),
                 'updated_at' => Yii::t('static','Дата обновления'),

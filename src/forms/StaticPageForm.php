@@ -19,7 +19,7 @@ class StaticPageForm extends BaseForm
     public $domain_id;
     public $locale;
     public $seo_name_md5_hash;
-    public $title;
+    public $header;
     public $content;
     public $status = 0;
     public $can_comment = 1;
@@ -32,7 +32,7 @@ class StaticPageForm extends BaseForm
         return [
             [
                 [
-                    'title',
+                    'header',
                     'content',
                     'locale',
                 ],
