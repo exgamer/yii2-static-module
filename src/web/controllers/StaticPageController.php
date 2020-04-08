@@ -3,9 +3,10 @@
 namespace concepture\yii2static\web\controllers;
 
 use concepture\yii2user\enum\UserRoleEnum;
-use concepture\yii2logic\controllers\web\localized\Controller;
+use concepture\yii2static\web\controllers\Controller;
 use concepture\yii2logic\actions\web\localized\StatusChangeAction;
 use concepture\yii2logic\actions\web\localized\UndeleteAction;
+use yii\helpers\ArrayHelper;
 
 /**
  * Class StaticPageController
@@ -16,13 +17,16 @@ class StaticPageController extends Controller
 {
     protected function getAccessRules()
     {
-        return [
+        return ArrayHelper::merge(
+            parent::getAccessRules(),
             [
-                'actions' => ['index', 'view','create', 'update', 'delete', 'undelete', 'status-change'],
-                'allow' => true,
-                'roles' => [UserRoleEnum::ADMIN],
+                [
+                    'actions' => ['index', 'view','create', 'update', 'delete', 'undelete', 'status-change'],
+                    'allow' => true,
+                    'roles' => [UserRoleEnum::ADMIN],
+                ]
             ]
-        ];
+        );
     }
 
 
@@ -30,7 +34,7 @@ class StaticPageController extends Controller
     {
         $actions = parent::actions();
 
-        return array_merge($actions,[
+        return ArrayHelper::merge($actions,[
             'status-change' => StatusChangeAction::class,
             'undelete' => UndeleteAction::class,
         ]);
