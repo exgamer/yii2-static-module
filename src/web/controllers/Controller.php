@@ -4,7 +4,7 @@ namespace concepture\yii2static\web\controllers;
 
 use yii\helpers\ArrayHelper;
 use concepture\yii2user\enum\UserRoleEnum;
-use concepture\yii2logic\controllers\web\Controller as Base;
+use concepture\yii2logic\controllers\web\localized\Controller as Base;
 use kamaelkz\yii2admin\v1\controllers\traits\ControllerTrait;
 
 use kamaelkz\yii2admin\v1\modules\audit\actions\AuditAction;
