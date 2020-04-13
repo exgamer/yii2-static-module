@@ -3,7 +3,6 @@
 namespace concepture\yii2static\web\controllers;
 
 use concepture\yii2user\enum\UserRoleEnum;
-use concepture\yii2static\web\controllers\Controller;
 use concepture\yii2logic\actions\web\localized\StatusChangeAction;
 use concepture\yii2logic\actions\web\localized\UndeleteAction;
 use yii\helpers\ArrayHelper;
@@ -15,13 +14,16 @@ use yii\helpers\ArrayHelper;
  */
 class StaticBlockController extends Controller
 {
+    /** @var bool */
+    public $localized = true;
+    
     protected function getAccessRules()
     {
         return ArrayHelper::merge(
             parent::getAccessRules(),
             [
                 [
-                    'actions' => ['index', 'view','create', 'update', 'delete', 'undelete', 'status-change'],
+                    'actions' => ['undelete', 'status-change'],
                     'allow' => true,
                     'roles' => [UserRoleEnum::ADMIN],
                 ]
