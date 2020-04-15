@@ -17,19 +17,19 @@ class StaticBlockController extends Controller
     /** @var bool */
     public $localized = true;
     
-    protected function getAccessRules()
-    {
-        return ArrayHelper::merge(
-            parent::getAccessRules(),
-            [
-                [
-                    'actions' => ['undelete', 'status-change'],
-                    'allow' => true,
-                    'roles' => [UserRoleEnum::ADMIN],
-                ]
-            ]
-        );
-    }
+//    protected function getAccessRules()
+//    {
+//        return ArrayHelper::merge(
+//            parent::getAccessRules(),
+//            [
+//                [
+//                    'actions' => ['undelete', 'status-change'],
+//                    'allow' => true,
+//                    'roles' => [UserRoleEnum::ADMIN],
+//                ]
+//            ]
+//        );
+//    }
 
 
     public function actions()

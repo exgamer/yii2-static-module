@@ -17,19 +17,19 @@ class StaticPageController extends Controller
     /** @var bool */
     public $localized = true;
     
-    protected function getAccessRules()
-    {
-        return ArrayHelper::merge(
-            parent::getAccessRules(),
-            [
-                [
-                    'actions' => ['index', 'view','create', 'update', 'delete', 'undelete', 'status-change'],
-                    'allow' => true,
-                    'roles' => [UserRoleEnum::ADMIN],
-                ]
-            ]
-        );
-    }
+//    protected function getAccessRules()
+//    {
+//        return ArrayHelper::merge(
+//            parent::getAccessRules(),
+//            [
+//                [
+//                    'actions' => ['index', 'view','create', 'update', 'delete', 'undelete', 'status-change'],
+//                    'allow' => true,
+//                    'roles' => [UserRoleEnum::ADMIN],
+//                ]
+//            ]
+//        );
+//    }
 
 
     public function actions()
