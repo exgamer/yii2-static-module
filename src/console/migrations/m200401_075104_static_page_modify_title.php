@@ -24,7 +24,6 @@ class m200401_075104_static_page_modify_title extends Migration
         $this->execute($sql);
         $sql = "UPDATE {$this->getTableName()} SET seo_h1 = NULL";
         $this->execute($sql);
-        $sql = "ALTER TABLE {$this->getTableName()} RENAME COLUMN title TO header;";
-        $this->execute($sql);
+        $this->renameColumn($this->getTableName(), 'title', 'header');
     }
 }
