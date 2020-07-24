@@ -39,9 +39,10 @@ class StaticPageService extends Service
      * Возвращает активную статическую страницу для текущего url по хешу md5 url
      *
      * @param null $url
+     * @param $status
      * @return array
      */
-    public function getPageForCurrentUrl($url = null)
+    public function getPageForCurrentUrl($url = null, $status = StatusEnum::ACTIVE)
     {
         $current = Yii::$app->getRequest()->getPathInfo();
         if ($url){
@@ -56,9 +57,12 @@ class StaticPageService extends Service
 //            $q->andWhere(["{$localizedAlias}.seo_name_md5_hash" => $md5]);
 //        };
 
-        return $this->getOneByCondition(function(ActiveQuery $query) use ($localizedAlias, $md5){
+        return $this->getOneByCondition(function(ActiveQuery $query) use ($localizedAlias, $md5, $status){
             $query->andWhere(["{$localizedAlias}.seo_name_md5_hash" => $md5]);
-            $query->andWhere("status = :status", [':status' => StatusEnum::ACTIVE]);
+            if ($status) {
+                $query->andWhere("status = :status", [':status' => StatusEnum::ACTIVE]);
+            }
+
             $query->andWhere("is_deleted = :is_deleted", [':is_deleted' => IsDeletedEnum::NOT_DELETED]);
         });
     }
